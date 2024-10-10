@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
+		<style>
+		    .move{
+		        height: 50px;
+		        width: 15%;
+		        border:solid 1px black;
+		        background-color:gray;
+		        margin:5px;
+		        position:relative;
+		        color:white;
+		    }
+		    #container
+		    {
+		        display:flex;
+		    }
+		</style>
+	</head>
+
+	<body>
+        <div id = container>
+            <div class = move id = div1></div>
+            <div class = move id = div2></div>
+            <div class = move id = div3></div>
+            <div class = move id = div4></div>
+            <div class = move id = div5></div>
+            <div class = move id = div6></div>
+            <div class = move id = div7></div>
+            <div class = move id = div8></div>
+        </div>
+        <script>
+            function wave() {
+                //This will grab the height of the window of the browser
+                var HEIGHT = $(window).height();
+                // Get the first box to animate to the bottom
+                $("#div1").animate({top: HEIGHT}, "slow", function(){
+                    // Get the next box to animate to the bottom using callback function
+                    $("#div2").animate({top: HEIGHT}, "slow", function(){
+                        $("#div3").animate({top: HEIGHT}, "slow", function(){
+                            $("#div4").animate({top: HEIGHT}, "slow", function(){
+                                $("#div5").animate({top: HEIGHT}, "slow", function(){
+                                    $("#div6").animate({top: HEIGHT}, "slow", function(){
+                                        $("#div7").animate({top: HEIGHT}, "slow", function(){
+                                            $("#div8").animate({top: HEIGHT}, "slow", function(){
+                        
+                                            })
+                                        })
+                                    })
+                                })
+                            })
+                        })
+                    })
+                })
+                
+                // Get the first box to return whil the second box starts falling
+                $("#div1").animate({top: 0}, "slow", function(){
+                    // Get the next box to animate to the bottom using callback function
+                    $("#div2").animate({top: 0}, "slow", function(){
+                        $("#div3").animate({top: 0}, "slow", function(){
+                            $("#div4").animate({top: 0}, "slow", function(){
+                                $("#div5").animate({top: 0}, "slow", function(){
+                                    $("#div6").animate({top: 0}, "slow", function(){
+                                        $("#div7").animate({top: 0}, "slow", function(){
+                                            $("#div8").animate({top: 0}, "slow", function(){
+                        
+                                            })
+                                        })
+                                    })
+                                })
+                            })
+                        })
+                    })
+                })
+            } 
+            
+            setInterval(wave, 5300)
+             
+            
+        </script>
+	</body>
+</html>
