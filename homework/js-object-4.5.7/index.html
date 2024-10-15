@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>To Do List</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+		</script>
+	</head>
+
+	<body>
+		<div id = "to-do">
+		    <h4>To Do List!</h4>
+		</div>
+		<hr>
+		<div>
+		    <form id = task-form onsubmit = saveTask()>
+		        Enter your task here: 
+		        <input type=text name ="task">
+		        <input type = submit>
+		    </form>
+		</div>
+		<br>
+		<div id= "to-do-list">
+		</div>
+	</body>
+	<script>
+	    //Copy your code from the previous exercise
+	    // If task list exists in local storage then load it
+	    if (localStorage.storageTaskList) {
+	        list = JSON.parse(localStorage.storageTaskList)
+	        $("#to-do-list").empty()
+	        for (var i = 0; i < list.length; i++) {
+	        $("#to-do-list").append('<li>' + list[i] + '</li>')
+	        }
+	        
+	    } else {
+	        localStorage.storageTaskList = JSON.stringify([])
+	    }
+	    // click function to slash 
+	    $('#to-do-list').on('click', 'li', function(){
+	        $(this).css('text-decoration', 'line-through')
+	        listItem = $(this).text()
+	        updateTaskList = JSON.parse(localStorage.storageTaskList)
+	        index = updateTaskList.indexOf(listItem)
+	        updateTaskList.splice(listItem, 1)
+	        updateTaskListString = JSON.stringify(updateTaskList)
+	        localStorage.setItem('storageTaskList', updateTaskListString )
+	        
+	    })
+
+	    function saveTask() {
+	        event.preventDefault();
+	        var taskList = $("#task-form").serializeArray();
+	        var task = taskList[0].value; 
+	        $("#to-do-list").append("<li>" + task + "</li>");
+	        $('form').trigger("reset");
+	        updateTaskList = JSON.parse(localStorage.storageTaskList)
+	        updateTaskList.push(task)
+	        updateTaskListString = JSON.stringify(updateTaskList)
+	        
+	        localStorage.setItem('storageTaskList', updateTaskListString )
+	    }
+	</script>
+</html>
