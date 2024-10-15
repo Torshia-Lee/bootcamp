@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
+
+	</head>
+
+	<body>
+	    <div id = container>
+    	    <h1>My Phonebook</h1>
+    	    <div id = button-container>
+        	    <button id = add>Add Contact</button>
+        	    <button id = retrieve>Retrieve Contact</button>
+        	    <button id = print>Print Contacts</button>
+    	    </div>
+    	    <div id = contact-reveal></div>
+	    </div>
+	    <script>
+	        //copy your code from the previous exercise
+            //Click event for the Print Contacts 
+            $('#print').click(function(){
+	            printContacts()
+	        })
+	        
+	        
+	         //Click event for the add button
+	        $('#add').click(function(){
+	            addContact()
+	        })
+	        
+	        // Click event for the retrieve button
+	        $('#retrieve').click(function(){
+	              /* check if the first and last name exists
+	           and if it exists it will print to the contact-reveal div */
+	           //prompt for first name
+	           var firstName = prompt("What is the first name?")
+	           //prompt for last name
+	           var lastName = prompt("What is the last name?")
+	           
+	            retrieveContact(firstName, lastName)
+	        })
+	        
+	        //If the phonebook doesnt exist in the local storafe create it
+	        if(!localStorage.phonebook){
+	            localStorage.phonebook = JSON.stringify([])
+	            
+	        }
+	        
+	        function addContact()
+	        {
+               //prompt for first name
+	           var firstName = prompt("What is the first name?")
+	           //prompt for last name
+	           var lastName = prompt("What is the last name?")
+	           //prompt for phone number
+	           var number = prompt("What is their phone number?")
+	           //Store data in object 
+	           var person = {fName: firstName, lName: lastName, pNumber: number}
+	           //Create a list called phonebook and save the object
+	           
+	           var phoneBookList= JSON.parse(localStorage.phonebook)
+	           phoneBookList.push(person)
+	           phoneBookString = JSON.stringify(phoneBookList)
+	           localStorage.setItem("phonebook", phoneBookString)
+	        }
+	        
+	        
+	        
+	        function contactExists(first, last)
+	        {
+	         
+	           // Retrieve the phonebook
+               var phoneBookList = JSON.parse(localStorage.phonebook)
+            
+               
+               //For loop to check the name 
+               exists = phoneBookList.find(user => user.fName === first)
+               if (typeof exists != 'undefined') {
+                   return true 
+               } else {
+                   return false
+               }
+               
+               
+	        }
+	        
+	        
+	        
+	        function retrieveContact(first, last)
+	        {   
+	             $('#contact-reveal').empty();
+	            var phoneBookList = JSON.parse(localStorage.phonebook)
+	            var exists = contactExists(first, last)
+	            if (exists == true ){
+	                index = phoneBookList.findIndex(user => user.fName === first);
+	                $('#contact-reveal').append('<p>' + phoneBookList[index].fName + ':' + phoneBookList[index].lName + ':' + phoneBookList[index].pNumber + '</p>' )
+	       
+	            } else {
+	                // else prompt user if they want to add 
+	                // if yes initiate addContact()
+	                initiateNewContact = prompt("Would you like to add this to your contact list?").toLowerCase()
+	                if (initiateNewContact == 'yes') {
+	                    addContact();
+	                }
+	            }
+	        }
+	        
+	        function printContacts()
+	        {
+	            $('#contact-reveal').empty();
+	            var phoneBookList = JSON.parse(localStorage.phonebook);
+	            
+	            for (var i = 0; i < phoneBookList.length; i++) {
+	                $('#contact-reveal').append('<p>' + phoneBookList[i].fName + ':' + phoneBookList[i].lName + ':' + phoneBookList[i].pNumber + '</p>' );
+	            }
+	        }
+	    </script>
+	</body>
+</html>
