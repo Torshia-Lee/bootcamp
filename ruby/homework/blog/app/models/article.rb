@@ -1,7 +1,7 @@
 class Article < ApplicationRecord
-    has_many :comments
+    has_many :comments, dependent: :destroy 
 
-    belongs_to :Category
+    belongs_to :Category, optional: true
 
 
     validates :title, presence: true
