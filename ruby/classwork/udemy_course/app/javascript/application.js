@@ -5,3 +5,6 @@ import "controllers"
 
 //= require jquery
 //= require bootstrap-sprockets
+
+//= link rails-ujs.js
+//= link controllers.js
