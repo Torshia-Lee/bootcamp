@@ -125,7 +125,7 @@
   }
   
   ul li a:hover {
-    color: #555;
+    color: #e80b0b;
   }
   
   /* Buttons */
@@ -142,4 +142,13 @@
   button:hover {
     background: #555;
   }
+  
+  #categories {
+    border: 5px solid black;
+  }
+
+  #categoryName {
+    background: radial-gradient(circle, #ff7e5f, #feb47b);
+  }
+
   
