@@ -1,5 +1,18 @@
-<%= render "view", category: @category %>
+<h1>Category</h1>
 
+<ul>
+  <% @categories.each do |category| %>
+    <div id = "categories">
+      <li id = "categoryName">
+      <%= link_to category.name, category %>
+      </li>
+      <p><em><%= category.description %></em></p>
+      <li>
+      <%= category.name %> (Articles: <%= category.articles.count %>)
+      </li>
+    </div>
+  <% end %>
+</ul>
 
 
 <%= link_to "New Category", new_category_path %>
