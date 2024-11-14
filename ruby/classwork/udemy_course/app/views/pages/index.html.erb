@@ -1,2 +1,10 @@
 <h1>Hello index</h1>
 
+<!-- Side Widget Well -->
+<div class="well">
+<h4>Recent Posts</h4>
+<% @articles.each do |a| %>
+<strong><%= link_to a.title, a %></strong>
+<p><%= truncate(a.body) %></p>
+<% end %>
+</div>
