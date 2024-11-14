@@ -19,6 +19,11 @@
       <%= form.label :category_id, "Category" %>
       <%= form.collection_select :category_id, Category.all, :id, :name, prompt: "Select a Category" %>
     </div>
+
+    <div>
+    <%= form.label :author_id, "Author" %>
+    <%= form.collection_select :auhor_id, Author.all, :id, :name, prompt: "Select an Author" %>
+    </div>
   
     <div>
       <%= form.submit %>
