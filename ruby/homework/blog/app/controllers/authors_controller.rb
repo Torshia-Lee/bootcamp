@@ -20,6 +20,7 @@ class AuthorsController < ApplicationController
 
   # GET /authors/1/edit
   def edit
+    @author = Author.find(params[:id])
   end
 
   # POST /authors or /authors.json

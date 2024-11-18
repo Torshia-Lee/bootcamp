@@ -1,6 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @author %>
+ <% @articles.each do |article| %>
+    <li>
+    <%= article.title %>
+    </li>
+  <% end %>
 
 <div>
   <%= link_to "Edit this author", edit_author_path(@author) %> |
