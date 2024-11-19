@@ -1,0 +1,16 @@
+label {
+    border-style: groove;
+    background-color: aquamarine;
+    padding: 5px;
+    margin: 20px;
+    
+}
+
+#card-element {
+    border: groove;
+    padding: 20px;
+    margin-top: 20px;
+}
+button {
+    margin-top:  50px;
+}

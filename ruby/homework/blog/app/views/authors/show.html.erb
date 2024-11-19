@@ -1,6 +1,9 @@
 <p style="color: green"><%= notice %></p>
 
+<h2> Author </h2>
 <%= render @author %>
+
+<h2> Articles </h2>
  <% @articles.each do |article| %>
     <li>
     <%= article.title %>
