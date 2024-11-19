@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
             toggleButton.textContent = "Hide Content";
         } else {
             content.style.display = "none";
-            toggleButton.textContent - "Show Content";
+            toggleButton.textContent = "Show Content";
         }
     })
 })
