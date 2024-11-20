@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get "donations/new"
   get "donations/create"
   resources :authors
