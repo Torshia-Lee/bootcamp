@@ -1,5 +1,6 @@
 console.log("Donation.js is loaded");
 
+
 document.addEventListener("DOMContentLoaded", () => {
     const stripe = Stripe("<%= Rails.application.credentials.dig(:stripe, :publishable_key) %>");
     const elements = stripe.elements();

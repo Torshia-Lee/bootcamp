@@ -155,3 +155,9 @@
     display: flex;
     justify-content: flex-end;
   }
+
+  #card-container{
+    border-style: dotted;
+    padding: 10px;
+    background-color: aqua;
+  }

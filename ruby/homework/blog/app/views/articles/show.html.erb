@@ -1,6 +1,7 @@
 <% content_for :javascript do %>
   <script type="module">
-    import "article";
+    import "add_jquery";
+    import "loading_comments";
   </script>
 <% end %>
 
@@ -28,6 +29,13 @@
   </ul>
 
   <h2>Comments</h2>
+
+  <div id="comments">
+  </div>
+
+  <button id="load-comments"
+    data-article= "<%= @article.id %>" >Load More Comments </button>
+
   <%= render @article.comments %>
 
   <h2>Add a comment:</h2>

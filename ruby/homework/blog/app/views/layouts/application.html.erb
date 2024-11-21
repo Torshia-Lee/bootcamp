@@ -15,19 +15,19 @@
     <link rel="apple-touch-icon" href="/icon.png">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
     
   </head>
 
   <body>
-   <!-- <% if controller_name == "donations" && (action_name == "new" || action_name == "create") %>
-   # <%= javascript_include_tag "donation", type: "module" %>
-    <% end %>  -->
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     
+    
     <div id="login_button">
+      <%= button_to "Home", root_path, method: :get %>
       <% if user_signed_in? %>
       <%= button_to "Sign Out", destroy_user_session_path, method: :delete %>
       <% else %>
