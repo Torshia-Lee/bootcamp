@@ -1,15 +1,14 @@
 $(function(){
-    alert('jQuery is working!');
+    console.log('jQuery is working!');
 
 
     // Dynamic content loading for comments
     $('#load-comments').on('click', function() {
         console.log("Hello")
-        const categoryId = $('#category-id').data('category');
+        const categoryId = $('#load-comments').data('category');
         const articleId = $('#load-comments').data('article');
 
         const url = `/categories/${categoryId}/articles/${articleId}/comments`;
-        console.log($.getJSON(url));
         $.getJSON(url, function(data){
             console.log(data);
             // Append the new comments to the container #comments
